@@ -2,12 +2,14 @@
 
 //Esta es la parte donde ponermos la configuración de nuestra base de datos en Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyD79EiNvJoMGUukG-kfXRhw8yL4Xh9UY_c",
-  authDomain: "erparc-b85c3.firebaseapp.com",
-  projectId: "erparc-b85c3",
-  storageBucket: "erparc-b85c3.appspot.com",
-  messagingSenderId: "811209969592",
-  appId: "1:811209969592:web:f4945634467a7da295494d"
+  apiKey: "AIzaSyB63VZApYCI65TwFn0gKLNzLrcS-g-4oRY",
+    authDomain: "proyectofinalweb50-fd251.firebaseapp.com",
+    databaseURL: "https://proyectofinalweb50-fd251-default-rtdb.firebaseio.com",
+    projectId: "proyectofinalweb50-fd251",
+    storageBucket: "proyectofinalweb50-fd251.appspot.com",
+    messagingSenderId: "27360742093",
+    appId: "1:27360742093:web:f9073fff24e5e9f2717784",
+    measurementId: "G-EGBVW9R2TQ"
 };
   // Aquí arrancamos nuestro Firebase
   firebase.initializeApp(firebaseConfig);
