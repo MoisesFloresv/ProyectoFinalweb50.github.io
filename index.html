@@ -1,35 +1,58 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-	<title>Programacion Web - Tercer Departamental</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>PROYECTO FINAL DE PROGRAMACION WEB</title>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-analytics.js"></script>
+	  <script src="js.js"></script>
+	
+ <link rel="stylesheet" type="text/css" href="css\estilos.css"/>
 </head>
-  <!-- BOOSTRAP CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-<script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.14.4/firebase-firestore.js"></script>
-
 <body>
+  <form>
+  <section class="form-register">
+    <h4 align="center">  KWIK - E - MART</h4>
+    <br>
+    <br>
+    <input class="controls" type="text" name="Nombre" id="pri" placeholder="Ingrese el nombre del articulo">
+    <input class="controls" type="text" name="Marca" id="seg" placeholder="Ingrese la marca">
+    <input class="controls" type="text" name="Marca" id="ter" placeholder=" Ingrese la presentación del producto">
+    <br>
+    <br>
+	  <p><button onclick="guardarEnBD();">Agregar medicamento a la BD</button></p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <input class="controls" type="text" name="Carro" id="tercero" placeholder="¿Qué producto deseas eliminar?">
+    <br>
+    <br>
+  
+  
+    <input class="botons" type="submit" value="Eliminar producto">
+    <br>
+    <br>
+    <br>   
+    <br>
 
-<h1>Farmacias Don Charlie</h1>
-<p>Ingrese el nombre del medicamento</p>
-<input type="text" id="pri" name="Nombre">
-<p>Ingrese la marca perteneciente del medicamento</p>
-<input type="text" id="seg" name="Marca">
-<p>Ingrese la cantidad perteneciente del medicamento</p>
-<input type="text" id="ter" name="Marca">
-<p><button onclick="guardarEnBD();">Agregar medicamento a la BD</button></p>
+   <input class="controls" type="text" name="Carro" id="cuarto" placeholder="¿Qué producto deseas editar?">
+   <br>
+   <br>
+   <input class="botons" type="submit" value="Editar producto">
 
+  </section>
+  <br>
+  <br>
+  <br>
+  <br>
+ <footer align="center">Copyright &copy; 2021 Flores Ventura Moisés</footer>
 
-<p><label>¿Qué medicamento deseas eliminar?</label></p>
-<input type="text" id="tercero" name="Carro">
-<p><button onclick="eliminar();">Eliminar medicamento de la BD</button><p>
-
-<p><label>¿Qué medicamento deseas editar?</label></p>
-<input type="text" id="cuarto" name="Carro">
-<p><button onclick="editar();">Editar medicamento de la BD</button></p>
-<footer>Copyright @CarlosFrancoFerrer</footer>
 </body>
-<script type="text/javascript" src="js.js"></script>
 </html>
