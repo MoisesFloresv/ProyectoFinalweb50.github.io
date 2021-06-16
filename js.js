@@ -85,4 +85,3 @@ db.collection("Medicinas").doc(id).update({
 
 }
 console.log("Cargado Correctamente") 
-©
