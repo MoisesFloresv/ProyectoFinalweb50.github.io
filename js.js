@@ -1,7 +1,8 @@
 //Autor: Flores Ventura Moisés	
 
 // Esta es la parte donde ponemos la configurción de nuestra base de datos en Firebase
-const firebaseConfig = {
+const firebaseConfig = 
+{
   apiKey: "AIzaSyB63VZApYCI65TwFn0gKLNzLrcS-g-4oRY",
   authDomain: "proyectofinalweb50-fd251.firebaseapp.com",
   databaseURL: "https://proyectofinalweb50-fd251-default-rtdb.firebaseio.com",
@@ -13,7 +14,7 @@ const firebaseConfig = {
 };
 
 //Aquí arrancamos nuestro Firebase
-Firebase.initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
 
@@ -21,7 +22,7 @@ let array1 = []
 
 	db.collection("PRODUCTOS").get().then((querySnapshot) =>
 	{
-		querrySnapshot.Each((doc) =>
+		querySnapshot.forEach((doc) =>
 		{
 			console.log(`${doc.id} => ${doc.data()}`);
 			array1.push(doc.data())
@@ -66,13 +67,16 @@ let array1 = []
 			});	
 
 		}
-		function eliminar()
+		function.eliminar()
 		{
-			var id = document.getElementById("tercero").value
+			var.id = document.getElementById("tercero").value
 
 			db.collection("PRODUCTOS").doc(id).delete().then(function()
 			{
 				console.log("El registro se eliminó correctamente");
+			}).catch(function(error)
+			{
+				console.error("Error al eliminar un documento: ", error);
 			});
 
 		}
