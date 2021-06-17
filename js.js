@@ -1,16 +1,16 @@
 //Autor: Flores Ventura Moisés	
 
 // Esta es la parte donde ponemos la configurción de nuestra base de datos en Firebase
-var firebaseConfig = {
-    apiKey: "AIzaSyB63VZApYCI65TwFn0gKLNzLrcS-g-4oRY",
-    authDomain: "proyectofinalweb50-fd251.firebaseapp.com",
-    databaseURL: "https://proyectofinalweb50-fd251-default-rtdb.firebaseio.com",
-    projectId: "proyectofinalweb50-fd251",
-    storageBucket: "proyectofinalweb50-fd251.appspot.com",
-    messagingSenderId: "27360742093",
-    appId: "1:27360742093:web:f9073fff24e5e9f2717784",
-    measurementId: "G-EGBVW9R2TQ"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyB63VZApYCI65TwFn0gKLNzLrcS-g-4oRY",
+  authDomain: "proyectofinalweb50-fd251.firebaseapp.com",
+  databaseURL: "https://proyectofinalweb50-fd251-default-rtdb.firebaseio.com",
+  projectId: "proyectofinalweb50-fd251",
+  storageBucket: "proyectofinalweb50-fd251.appspot.com",
+  messagingSenderId: "27360742093",
+  appId: "1:27360742093:web:f9073fff24e5e9f2717784",
+  measurementId: "G-EGBVW9R2TQ"
+};
 
 //Aquí arrancamos nuestro Firebase
 Firebase.initializeApp(firebaseConfig);
