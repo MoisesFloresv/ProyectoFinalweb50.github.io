@@ -50,7 +50,7 @@ let array1 = []
 			console.log(marca)
 			console.log(cantidad)
 
-			db.collection("Medicinas").add({
+			db.collection("PRODUCTOS").add({
 				Nombre: nombre,
 				Marca: marca,
 				Cantidad: cantidad
