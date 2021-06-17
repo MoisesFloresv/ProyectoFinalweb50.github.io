@@ -1,10 +1,8 @@
+//Autor: Flores Ventura Moisés	
 
-
-//Autor: Flores Ventura Moises
-
-//Esta es la parte donde ponermos la configuración de nuestra base de datos en Firebase
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+// Esta es la parte donde ponemos la configurción de nuestra base de datos en Firebase
+const firebaseConfig = 
+{
   apiKey: "AIzaSyB63VZApYCI65TwFn0gKLNzLrcS-g-4oRY",
   authDomain: "proyectofinalweb50-fd251.firebaseapp.com",
   databaseURL: "https://proyectofinalweb50-fd251-default-rtdb.firebaseio.com",
@@ -14,77 +12,86 @@ const firebaseConfig = {
   appId: "1:27360742093:web:f9073fff24e5e9f2717784",
   measurementId: "G-EGBVW9R2TQ"
 };
-  // Aquí arrancamos nuestro Firebase
-  firebase.initializeApp(firebaseConfig);
+};
+//Aquí arrancamos nuestro Firebase
+Firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
 
-
 let array1 = []
 
-    db.collection("Productos").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-        array1.push(doc.data())
-    });
-    console.log(array1)
+	db.collection("PRODUCTOS").get().then((querySnapshot) =>
+	{
+		querrySnapshot.Each((doc) =>
+		{
+			console.log(`${doc.id} => ${doc.data()}`);
+			array1.push(doc.data())
+		});
+		console.log(array1)
+	});
 
-  });
+	let array2 =[]
 
-let array2 = []
+		db.collection("users").get().then((querySnapshot) =>
+		{
+			querySnapshot.forEach((doc) =>
+			{
+				console.log(`${doc.id} => ${doc.data()}`);
 
-    db.collection("users").get().then((querySnapshot) => {
-    querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-        array2.push(doc.data())
-    });
-    console.log(array2)
+			});
+			console.log(array2)
+		});
 
-  });
+		function guardarEnBD()
+		{
+			var nombre = document.getElementById("pri").value
+			var marca = document.getElementById("seg").value
+			var cantidad = document.getElementById("ter").value
+			console.log(nombre)
+			console.log(marca)
+			console.log(cantidad)
 
-function guardarEnBD(){
-var nombre = document.getElementById("pri").value
-var marca = document.getElementById("seg").value
-var cantidad = document.getElementById("ter").value
-console.log(nombre)
-console.log(marca)
-console.log(cantidad)
+			db.collection("Medicinas").add({
+				Nombre: nombre,
+				Marca: marca,
+				Cantidad: cantidad
+			})
+			.then(function(docRef)
+			{
+				console.log("El producto se ha guardadó satisfactoriamente en la base de datos con el ID: ", docRef.id);
+				
+			})
+			.catch(function(error)
+			{
+				console.error("Se produjo un error al guardar el producto: ", error);
+			});	
 
-db.collection("Productos").add({
-    Nombre:nombre,
-    Marca:marca,
-    Cantidad:cantidad
-})
-.then(function(docRef) {
-    console.log("Se guardó correctamente en la base de datos con el ID: ", docRef.id);
-})
-.catch(function(error) {
-    console.error("Se produjo un error al guardar: ", error);
-});	
-}
+		}
+		function.eliminar()
+		{
+			var.id = document.getElementById("tercero").value
 
-function eliminar(){
-	var id = document.getElementById("tercero").value
+			db.collection("PRODUCTOS").doc(id).delete().then(function()
+			{
+				console.log("El registro se eliminó correctamente");
+			});
 
-	db.collection("Productos").doc(id).delete().then(function() {
-    console.log("El registro se ha eliminado correctamente!");
-}).catch(function(error) {
-    console.error("Error al eliminar un documento: ", error);
-});
-}
-  
-function editar(){
+		}
 
-	var id = document.getElementById("cuarto").value
+		function editar ()
+		{
+			var id = document.getElementById("cuarto").value
 
-	// To update age and favorite color:
-db.collection("Productos").doc(id).update({
-    "CampoMarca": "Pziser",
-    
-})
-.then(function() {
-    console.log("Document successfully updated!");
-});
+			//To update age and favorite color:
 
-}
-console.log("Cargado Exitosamente")
+			db.collection("PRODUCTOS").doc(id).update({
+				"CampoMarca": "Pziser",
+
+			})
+			.then(function()
+			{
+				console.log("Document successfully update");
+			});
+
+		}
+		console.log("Cargado correctamente")
