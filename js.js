@@ -66,9 +66,9 @@ let array1 = []
 			});	
 
 		}
-		function.eliminar()
+		function eliminar()
 		{
-			var.id = document.getElementById("tercero").value
+			var id = document.getElementById("tercero").value
 
 			db.collection("PRODUCTOS").doc(id).delete().then(function()
 			{
