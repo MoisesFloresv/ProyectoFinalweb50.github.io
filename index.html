@@ -12,9 +12,28 @@
   <!-- ANIMATE CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
 
+  <link rel="stylesheet" type="text/css" href="estilos.css"/>
+
 </head>
+    <br>
+    <br>
+ <nav id="menu">
+        <ul>
+            <li><a href="index.html">Inicio</a>   </li>
+            <li><a href="Nosotros.html">Nosotros</a> </li>
+            
+           
+        </ul>
+      </nav>
+
 
 <body class="bg-light">
+  <h1 class="h3 mb-3 fw-normal" id="user_name">Acceso</h1>
+  <button onclick="loginWithGoogle()" class="w-100 btn btn-lg btn-primary" id="login_btn">Iniciar con Google</button>
+
+    <button onclick="logout()" style="display: none;" class="w-100 btn btn-lg btn-danger" id="logout_btn">Salir</button>
+
+  
 
   <!-- ADD TASK -->
   <div class="container p-4">
@@ -29,7 +48,6 @@
               <div class="form-group">
                 <input type="text" id="task-title" class="form-control" class="Task Title" placeholder="Nombre del producto"
                   autofocus>
-              </div>
               <div class="form-group">
                 <textarea id="task-description" rows="3" class="form-control" placeholder="Descripción del producto"></textarea>
               </div>
@@ -53,6 +71,7 @@
      https://firebase.google.com/docs/web/setup#available-libraries -->
  <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
 
 
 <script>
@@ -72,13 +91,98 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
 </script>
+<script>
+  var provider = new.firebase.auth.GoogleAuthProvider();
+
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+
+      console.log(user.displayName);
+      updateUser(user);
+      // ...
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+
+      console.log(errorMessage);
+    });
+</script>
+
 
     <script src="index.js"></script>
+<script type="text/javascript">
+    //variables
+    var login_btn     = document.getElementById("login_btn"),
+      logout_btn      = document.getElementById("logout_btn"),
+      user_image      = document.getElementById("user_image"),
+      user_name_h1    = document.getElementById("user_name");
+
+    //iniciar con Google
+    var loginWithGoogle = function(){
+
+      var provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider).then(function(result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+
+      console.log(user.displayName);
+      updateUser(user);
+      // ...
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+
+      console.log(errorMessage);
+    });
+    }
+
+    //agregar datos del usuario
+    var updateUser = function(user){
+      user_name_h1.innerHTML = "Hola, " + user.displayName;
+      user_image.src = user.photoURL;
+
+      login_btn.style.display = "none";
+      logout_btn.style.display = "inline-block";
+    }
+
+    var logout = function(){
+      firebase.auth().signOut().then(function() {
+        user_name_h1.innerHTML = "Acceso";
+        user_image.src = "assets/images/JimeCoding.jpg";
+        login_btn.style.display = "inline-block";
+        logout_btn.style.display = "none";
+
+    }).catch(function(error) {
+      // An error happened.
+    });
+
+    }
+
+
+  </script>
 
   
     
 </body>
   <footer align= "center">
-    ©2021 – Todos los derechos reservados
+    ©2021 – Todos los derechos reservados Flores Ventura Moisés
   </footer>
 </html>
+
