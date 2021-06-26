@@ -1,0 +1,43 @@
+body
+{
+    background: #fff;
+    text-align: center;
+    font: bold 16px "Trebuchet MS";
+
+}
+h1  h3 
+{
+color:  rgb(255, 255, 255);
+
+}
+nav#menu ul li
+{
+    background: #07abbe;
+    border-radius: 0.5em;
+    display: inline-block;
+    padding: 0.7em 2em;
+}
+nav#menu ul li:hover
+{
+    background: #fff;
+}
+nav#menu ul li a
+{
+    color: #272727;
+    
+}
+/*----------- CAJA ----------- */
+.caja { 
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+    color: #ffffff; 
+    font-size: 18px; 
+    font-weight: 400; 
+    text-align: center; 
+    background: #889ccf; 
+    margin: 0 0 25px; 
+    overflow: hidden; 
+    padding: 20px; 
+    border-radius: 35px 0px 35px 0px; 
+    -moz-border-radius: 35px 0px 35px 0px; 
+    -webkit-border-radius: 35px 0px 35px 0px; 
+    border: 2px solid #5878ca;}
